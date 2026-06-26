@@ -39,6 +39,7 @@ const client = new Client({
     authStrategy: new LocalAuth(), // Esto guarda la sesión para no escanear el QR cada vez
     puppeteer: {
         // Modo invisible
+        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     }

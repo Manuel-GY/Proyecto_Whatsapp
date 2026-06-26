@@ -14,7 +14,21 @@ const GROUP_NAMES = [
 ];
 
 // Mensaje de texto a enviar
-const TEXT_MESSAGE = "Hola grupo, este es el mensaje programado del día.";
+const TEXT_MESSAGE = `🚨 ¿Tu hogar y tus bienes están realmente protegidos? 🚨
+
+No dejes la tranquilidad de tu familia al azar. Ofrecemos servicio profesional de instalación de sistemas de seguridad, alarmas y cámaras para que tengas el control total de lo que pasa en tu casa, estés donde estés. 📹🔒
+
+✅ Protege tu hogar 24/7.
+✅ Equipos de alta calidad.
+✅ Instalación rápida y limpia.
+
+🎁 ¡ATENCIÓN VECINOS! 
+
+Tenemos COTIZACIÓN GRATUITA exclusiva para domicilios dentro del sector Parque Los Suspiros.
+
+📲 Escríbenos o llámanos hoy mismo al: +56 9 7573 9157
+
+👉 Haz clic aquí para hablar por WhatsApp: wa.me/56975739157`;
 
 // Ruta a la imagen que se enviará (usa barras dobles \\ o barra simple / en la ruta)
 // Puedes poner la imagen en la misma carpeta y poner solo su nombre.

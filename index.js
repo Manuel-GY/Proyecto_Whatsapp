@@ -6,11 +6,10 @@ const fs = require('fs');
 // Nombres exactos de los 5 grupos de WhatsApp
 // ¡IMPORTANTE! Escríbelos exactamente igual que en WhatsApp (respetando mayúsculas/minúsculas y emojis si los tienen)
 const GROUP_NAMES = [
-    "Nombre Del Grupo 1",
-    "Nombre Del Grupo 2",
-    "Nombre Del Grupo 3",
-    "Nombre Del Grupo 4",
-    "Nombre Del Grupo 5"
+    "Ventas san Bernardo 😎😎",
+    "Ventas San Bernardo II😎😎",
+    "Emprendedores Vista Parques",
+    "Ventas C.Casas del P. VII"
 ];
 
 // Mensaje de texto a enviar
@@ -48,10 +47,6 @@ const client = new Client({
             '--disable-accelerated-2d-canvas',
             '--disable-gpu'
         ]
-    },
-    webVersionCache: {
-        type: 'remote',
-        remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html'
     }
 });
 

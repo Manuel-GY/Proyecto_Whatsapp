@@ -32,7 +32,7 @@ Tenemos COTIZACIÓN GRATUITA exclusiva para domicilios dentro del sector Parque 
 
 // Ruta a la imagen que se enviará (usa barras dobles \\ o barra simple / en la ruta)
 // Puedes poner la imagen en la misma carpeta y poner solo su nombre.
-const IMAGE_PATH = "./imagen.jpg";
+const IMAGE_PATH = "./imagen.jpeg";
 // =================================================
 
 const client = new Client({

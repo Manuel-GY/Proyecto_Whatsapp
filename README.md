@@ -1,52 +1,56 @@
-# Bot de WhatsApp Programado 🤖
+# Bot de WhatsApp para Ventas 🤖
 
-Este proyecto es un bot automatizado creado con [Node.js](https://nodejs.org/) y [whatsapp-web.js](https://wwebjs.dev/) diseñado para enviar mensajes de texto e imágenes de manera programada a grupos de WhatsApp.
+Este proyecto automatiza el envío diario de mensajes promocionales (con texto e imágenes) a grupos de WhatsApp específicos. Está diseñado para correr de fondo todos los días a las 12:00 PM sin interrumpir el trabajo normal y capaz de despertar el PC si está suspendido.
 
-## Características ✨
+## 📋 Requisitos Previos (Para instalar en un nuevo PC)
 
-- **Envío Múltiple**: Envía automáticamente un mensaje de texto y una imagen a 5 grupos diferentes de WhatsApp.
-- **Funcionamiento en Segundo Plano**: Opera en modo *headless*, por lo que no interfiere con el uso normal del equipo.
-- **Soporte para Pantalla Bloqueada**: Al ejecutarse sobre Puppeteer en segundo plano, puede operar con éxito aunque la PC despierte de la suspensión y se encuentre en la pantalla de bloqueo de Windows.
-- **Tarea Programada Automática**: Incluye un script de PowerShell para automatizar la ejecución diaria a las 12:00 PM (despertando el equipo si es necesario).
+Si deseas instalar este bot en tu casa o en otra computadora, necesitas tener instalado lo siguiente:
+1. **[Node.js](https://nodejs.org/es/)** (Descarga la versión recomendada e instálala).
+2. **Google Chrome** (Debe estar instalado en la ruta por defecto del sistema).
+3. **Git** (Opcional, si prefieres clonar el repositorio usando comandos, si no, simplemente puedes descargar el ZIP desde GitHub).
+4. **WhatsApp** en tu teléfono celular para escanear el código QR por primera vez.
 
-## Prerrequisitos 📋
+---
 
-- [Node.js](https://nodejs.org/es/)
-- npm (Viene incluido con Node.js)
-- WhatsApp en tu teléfono inteligente para escanear el código QR.
+## 🚀 Guía de Instalación en Casa (Paso a Paso)
 
-## Instalación ⚙️
+Sigue estos pasos para dejar el sistema funcionando desde cero en tu computadora:
 
-1. Clona este repositorio o descarga la carpeta.
-2. Abre la terminal o consola de comandos en la carpeta del proyecto.
-3. Instala las dependencias necesarias:
-   ```bash
-   npm install
+### Paso 1: Descargar el Código
+1. Descarga este repositorio desde GitHub como un archivo ZIP y extráelo. (Se recomienda dejar la carpeta extraída en el Escritorio con el nombre `WhatsAppBot`).
+2. Asegúrate de copiar la foto que deseas enviar dentro de esta carpeta y que se llame exactamente **`imagen.jpeg`**.
+
+### Paso 2: Instalar las Librerías
+El proyecto usa una versión especial de la librería de WhatsApp para evitar bloqueos recientes de la aplicación.
+1. Abre la carpeta del bot.
+2. Haz clic en la **barra de direcciones de la carpeta** (arriba del todo, donde sale la ruta), borra lo que dice, escribe la palabra `cmd` y presiona **Enter**. Se abrirá una consola negra.
+3. En la consola, copia, pega y ejecuta este comando para instalar lo necesario:
+   ```cmd
+   npm install github:pedroslopez/whatsapp-web.js#main qrcode-terminal
    ```
 
-## Configuración 🛠️
+### Paso 3: Vincular tu WhatsApp (Solo se hace una vez)
+1. En la misma consola negra que abriste en el Paso 2, escribe el siguiente comando y presiona **Enter**:
+   ```cmd
+   node index.js
+   ```
+2. Espera unos segundos a que la consola dibuje un **Código QR**.
+3. Abre WhatsApp en tu celular ve a **Dispositivos vinculados > Vincular un dispositivo**.
+4. Escanea el código QR de la pantalla de tu computadora.
+5. El sistema enviará el primer mensaje y luego de unos segundos se cerrará automáticamente. La sesión quedará guardada de forma segura en una carpeta oculta dentro de tu PC, por lo que no tendrás que volver a escanearlo mañana.
 
-Antes de ejecutar el bot, necesitas personalizar tus datos abriendo el archivo `index.js` en cualquier editor de texto:
+### Paso 4: Activar el Envío Automático Diario
+Para que la computadora trabaje sola todos los días a las **12:00 PM**:
+1. En la carpeta del bot, ubica el archivo **`crear_tarea.ps1`**.
+2. Haz **clic derecho** sobre él y selecciona **"Ejecutar con PowerShell"**.
+3. ¡Listo! El "Programador de Tareas" de Windows ha sido configurado con éxito.
 
-1. **Nombres de Grupos**: Modifica la lista `GROUP_NAMES` con los nombres exactos de los 5 grupos de WhatsApp (respetando mayúsculas, minúsculas y emojis).
-2. **Mensaje de Texto**: Modifica la variable `TEXT_MESSAGE` con el mensaje que deseas enviar.
-3. **Imagen**: Coloca la imagen que quieres enviar en la carpeta raíz del proyecto y nómbrala `imagen.jpg`. (La ruta se puede cambiar en la variable `IMAGE_PATH`).
+*(Nota: Esta tarea de Windows está configurada con la opción especial "WakeToRun", lo que significa que despertará a tu computadora en caso de que esté en modo reposo a las 12 del día).*
 
-## Primer Uso (Vincular Cuenta) 📱
+---
 
-La primera vez que uses el bot, es necesario iniciar sesión en WhatsApp:
-
-1. Abre la consola en la ruta del proyecto y ejecuta `node index.js`.
-2. Verás en la consola un **código QR**.
-3. Abre WhatsApp en tu celular > *Dispositivos vinculados* > *Vincular un dispositivo*.
-4. Escanea el código QR de la pantalla.
-5. ¡Listo! La sesión se guardará de forma segura en una carpeta local para usos futuros, así no tendrás que volver a escanearlo.
-
-## Programación Diaria Automática ⏰
-
-Para que el programa se ejecute solo todos los días a las 12:00 PM:
-
-1. Haz clic derecho sobre el archivo `crear_tarea.ps1`.
-2. Selecciona **Ejecutar con PowerShell**.
-
-Esta tarea de Windows está configurada con la opción *WakeToRun*, lo que significa que despertará la computadora si esta se encuentra suspendida a la hora programada.
+## ⚙️ Modificar el Mensaje o los Grupos a Futuro
+Si más adelante quieres cambiar el mensaje, la foto o agregar nuevos grupos:
+1. Reemplaza el archivo `imagen.jpeg` por tu nueva foto.
+2. Abre el archivo `index.js` usando el Bloc de Notas (Click derecho > Abrir con > Bloc de Notas). 
+3. Justo en la parte superior verás la sección **CONFIGURACIÓN**, donde podrás editar el texto (`TEXT_MESSAGE`) y actualizar los nombres en la lista de grupos (`GROUP_NAMES`).
